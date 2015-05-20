@@ -72,6 +72,11 @@ class CactiDBAdapter(object):
     def get_devices(self, columns=None):
         """Get cacti db registered devices.
 
+        Args:
+
+            :columns (list optional): Specifying display columns.
+                Default is '['id', 'hostname', 'description',]'.
+
         Returns:
 
             :list (of dict): Return nodes list of dictionary.
