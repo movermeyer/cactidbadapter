@@ -39,24 +39,31 @@ class UnitTests(unittest.TestCase):
     def test_get_snmp_cache(self):
         """Get fetched snmp values from cacti db."""
         vals = self.obj.get_snmp_cache(('ifIndex',))
-        self.assertEqual(vals[0]['description'], 'Localhost')
-        self.assertEqual(vals[0]['hostname'], '127.0.0.1')
-        self.assertEqual(vals[0]['field_name'], 'ifIndex')
-        self.assertEqual(vals[0]['field_value'], '1')
+        for val in vals:
+            if val['field_value'] == '1':
+                self.assertEqual(val['description'], 'Localhost')
+                self.assertEqual(val['hostname'], '127.0.0.1')
+                self.assertEqual(val['field_name'], 'ifIndex')
+                self.assertEqual(val['field_value'], '1')
 
         vals = self.obj.get_snmp_cache(('ifIP',))
-        self.assertEqual(vals[0]['description'], 'Localhost')
-        self.assertEqual(vals[0]['hostname'], '127.0.0.1')
-        self.assertEqual(vals[0]['field_name'], 'ifIP')
-        self.assertEqual(vals[0]['field_value'], '10.0.2.15')
+        for val in vals:
+            if val['field_value'] == '10.0.2.15':
+                self.assertEqual(val['description'], 'Localhost')
+                self.assertEqual(val['hostname'], '127.0.0.1')
+                self.assertEqual(val['field_name'], 'ifIP')
+                self.assertEqual(val['field_value'], '10.0.2.15')
 
         vals = self.obj.get_snmp_cache(('ifIP', 'ifName'))
-        self.assertEqual(vals[0]['description'], 'Localhost')
-        self.assertEqual(vals[0]['hostname'], '127.0.0.1')
-        self.assertEqual(vals[0]['field_name'], 'ifIP')
-        self.assertEqual(vals[0]['field_value'], '10.0.2.15')
+        for val in vals:
+            if val['field_value'] == '10.0.2.15':
+                self.assertEqual(val['description'], 'Localhost')
+                self.assertEqual(val['hostname'], '127.0.0.1')
+                self.assertEqual(val['field_name'], 'ifIP')
+                self.assertEqual(val['field_value'], '10.0.2.15')
 
-        self.assertEqual(vals[3]['description'], 'Localhost')
-        self.assertEqual(vals[3]['hostname'], '127.0.0.1')
-        self.assertEqual(vals[3]['field_name'], 'ifName')
-        self.assertEqual(vals[3]['field_value'], 'lo')
+            elif val['field_value'] == 'lo':
+                self.assertEqual(val['description'], 'Localhost')
+                self.assertEqual(val['hostname'], '127.0.0.1')
+                self.assertEqual(val['field_name'], 'ifName')
+                self.assertEqual(val['field_value'], 'lo')
