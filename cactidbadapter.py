@@ -7,7 +7,7 @@ import pymysql.cursors
 
 class CactiDBAdapter(object):
 
-    """
+    """class CactiDBAdapter.
 
     Cacti DB Adapter
 
@@ -50,7 +50,6 @@ class CactiDBAdapter(object):
 
     def request(self, sql):
         """Request."""
-
         res = None
 
         self.connect()
