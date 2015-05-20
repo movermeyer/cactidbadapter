@@ -169,14 +169,36 @@ class CactiDBAdapter(object):
 
         return self.request(sql)
 
-    def get_snmp_cache(self, keywords, columns=None):
-        """Get from "host_snmp_cache" table."""
+    def get_snmp_cache(self, field_names, columns=None, limit=None):
+        """Get from "host_snmp_cache" table.
+
+        Args:
+
+            :field_names (list): Specifying display field_names.
+
+            :columns (list optional): Specifying display columns.
+                Default is "('id', 'hostname', 'description',
+                             'field_name', 'field_value', 'oid')".
+
+            :limit (int): limit value(integer).
+                Default is None.
+
+        Returns:
+
+            :list (of dict): Return fetched snmp values list of dictionary.
+
+        """
         if columns is None:
             columns = ('id', 'hostname', 'description',
                        'field_name', 'field_value', 'oid')
 
+        if limit is None:
+            limit = ''
+        else:
+            limit = 'limit %d' % limit
+
         condition = " or ".join(
-            ['field_name = "%s"' % keyword for keyword in keywords])
+            ['field_name = "%s"' % field_name for field_name in field_names])
 
         sql = " ".join([
             'select',
@@ -184,7 +206,11 @@ class CactiDBAdapter(object):
             'from host left join host_snmp_cache',
             'on host.id = host_snmp_cache.host_id',
             'where %s' % condition,
-            'limit 10',
+            limit,
         ])
 
         return self.request(sql)
+
+    def get_ifip(self, columns=None, limit=None):
+        """Get ifIP values from "host_snmp_cache" table."""
+        return self.get_snmp_cache(('ifIP',), columns=columns, limit=limit)
