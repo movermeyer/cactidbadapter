@@ -47,10 +47,20 @@ class UnitTests(unittest.TestCase):
         self.assertEqual(obj.port, 12345)
         self.assertEqual(obj.charset, 'utf8mb4')
 
-    def test_get_devices(self):
-        """Get devices from cacti db."""
-        devices = self.obj.get_devices()
-        self.assertEqual(devices[0]['hostname'], '127.0.0.1')
+    def test_get_host(self):
+        """Get host from cacti db."""
+        hosts = self.obj.get_host()
+        self.assertEqual(hosts[0]['hostname'], '127.0.0.1')
+
+    def test_host_columns(self):
+        """Check columns values."""
+        columns = CactiDBAdapter.host_columns()
+        self.assertEqual(len(columns), 35)
+
+    def test_host_snmp_cache_columns(self):
+        """Check columns values."""
+        columns = CactiDBAdapter.host_snmp_cache_columns()
+        self.assertEqual(len(columns), 42)
 
     def test_get_snmp_cache(self):
         """Get fetched snmp values from cacti db."""
@@ -83,3 +93,37 @@ class UnitTests(unittest.TestCase):
                 self.assertEqual(val['hostname'], '127.0.0.1')
                 self.assertEqual(val['field_name'], 'ifName')
                 self.assertEqual(val['field_value'], 'lo')
+
+        vals = self.obj.get_snmp_cache(('ifIP',), limit=1)
+        self.assertEqual(len(vals), 1)
+
+        vals = self.obj.get_snmp_cache(('ifIP',), limit=2)
+        self.assertEqual(len(vals), 2)
+
+    def test_get_ifip(self):
+        """Get fetched snmp ifIP values from cacti db."""
+        vals = self.obj.get_ifip()
+        for val in vals:
+            if val['field_value'] == '127.0.0.1':
+                self.assertEqual(val['id'], 1)
+                self.assertEqual(val['hostname'], '127.0.0.1')
+                self.assertEqual(val['description'], 'Localhost')
+                self.assertEqual(val['field_name'], 'ifIP')
+                self.assertEqual(val['oid'],
+                                 '.1.3.6.1.2.1.4.20.1.2.127.0.0.1')
+
+            if val['field_value'] == '10.0.2.15':
+                self.assertEqual(val['id'], 1)
+                self.assertEqual(val['hostname'], '127.0.0.1')
+                self.assertEqual(val['description'], 'Localhost')
+                self.assertEqual(val['field_name'], 'ifIP')
+                self.assertEqual(val['oid'],
+                                 '.1.3.6.1.2.1.4.20.1.2.10.0.2.15')
+
+            if val['field_value'] == '192.168.56.2':
+                self.assertEqual(val['id'], 1)
+                self.assertEqual(val['hostname'], '127.0.0.1')
+                self.assertEqual(val['description'], 'Localhost')
+                self.assertEqual(val['field_name'], 'ifIP')
+                self.assertEqual(val['oid'],
+                                 '.1.3.6.1.2.1.4.20.1.2.192.168.56.2')
