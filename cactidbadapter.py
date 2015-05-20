@@ -79,7 +79,7 @@ class CactiDBAdapter(object):
 
         return res
 
-    def get_devices(self, columns=None):
+    def get_host(self, columns=None):
         """Get cacti db registered devices.
 
         Args:
