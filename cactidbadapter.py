@@ -56,7 +56,17 @@ class CactiDBAdapter(object):
         self.connection.close()
 
     def request(self, sql):
-        """Request."""
+        """Execute SQL.
+
+        Args:
+
+            :sql (str): SQL string.
+
+        Returns:
+
+            :list: SQL result.
+
+        """
         res = None
 
         self.connect()
@@ -81,69 +91,71 @@ class CactiDBAdapter(object):
 
             :list (of dict): Return nodes list of dictionary.
 
-
         Using example:
 
             Default columns are 'id, hostname, description' ::
-            >>> obj.get_devices()
-            [{u'id': 1, u'hostname': u'NODE1', u'description': u'test node.'}]
 
-        Specified all columns. ::
+                >>> obj.get_devices()
+                [{u'id': 1, u'hostname': u'NODE1',
+                  u'description': u'test node.'}]
 
-            >>> obj.get_devices(columns=['*'])
-            [{u'id': 1, u'hostname': u'NODE1', ...... }]
+            Specified all columns. ::
 
-        Same with default columns. ::
+                >>> obj.get_devices(columns=['*'])
+                [{u'id': 1, u'hostname': u'NODE1', ...... }]
 
-            >>> obj.get_devices(columns=['id',
-                                         'hostname',
-                                         'description'])
-            [{u'id': 1, u'hostname': u'NODE1', u'description': u'test node.'}]
+            Same with default columns. ::
 
-        Specified 'id, hostname, status' columns. ::
+                >>> obj.get_devices(columns=['id',
+                                             'hostname',
+                                             'description'])
+                [{u'id': 1, u'hostname': u'NODE1',
+                  u'description': u'test node.'}]
 
-            >>> obj.get_devices(columns=['id',
-                                         'hostname',
-                                         'status'])
-            [{u'id': 1, u'hostname': u'NODE1', u'status': 3}]
+            Specified 'id, hostname, status' columns. ::
 
-        Available column names ::
+                >>> obj.get_devices(columns=['id',
+                                             'hostname',
+                                             'status'])
+                [{u'id': 1, u'hostname': u'NODE1', u'status': 3}]
 
-            availability
-            availability_method
-            avg_time
-            cur_time
-            description
-            device_threads
-            disabled
-            failed_polls
-            host_template_id
-            hostname
-            id
-            max_oids
-            max_time
-            min_time
-            notes
-            ping_method
-            ping_port
-            ping_retries
-            ping_timeout
-            snmp_auth_protocol
-            snmp_community
-            snmp_context
-            snmp_password
-            snmp_port
-            snmp_priv_passphrase
-            snmp_priv_protocol
-            snmp_timeout
-            snmp_username
-            snmp_version
-            status
-            status_event_count
-            status_fail_date
-            status_last_error
-            status_rec_date
-            total_polls
+            Available column names ::
+
+                availability
+                availability_method
+                avg_time
+                cur_time
+                description
+                device_threads
+                disabled
+                failed_polls
+                host_template_id
+                hostname
+                id
+                max_oids
+                max_time
+                min_time
+                notes
+                ping_method
+                ping_port
+                ping_retries
+                ping_timeout
+                snmp_auth_protocol
+                snmp_community
+                snmp_context
+                snmp_password
+                snmp_port
+                snmp_priv_passphrase
+                snmp_priv_protocol
+                snmp_timeout
+                snmp_username
+                snmp_version
+                status
+                status_event_count
+                status_fail_date
+                status_last_error
+                status_rec_date
+                total_polls
 
         """
         if columns is None:
