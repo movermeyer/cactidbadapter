@@ -79,7 +79,7 @@ class CactiDBAdapter(object):
 
         return res
 
-    def get_host(self, columns=None):
+    def get_host(self, columns=None, condition=None):
         """Get cacti db registered devices.
 
         Args:
@@ -89,6 +89,9 @@ class CactiDBAdapter(object):
 
                 Please see available column names with
                     this method "host_columns()".
+
+            :condition (str): This string is used with where condition.
+                Default is None.
 
         Returns:
 
@@ -126,13 +129,15 @@ class CactiDBAdapter(object):
         if columns is None:
             columns = ('id', 'hostname', 'description')
 
-        sql = " ".join([
+        sql = [
             'select',
             ', '.join(columns),
-            'from host',
-        ])
+            'from host']
 
-        return self.request(sql)
+        if condition:
+            sql.append('where %s' % condition)
+
+        return self.request(' '.join(sql))
 
     def get_snmp_cache(self, field_names,
                        columns=None, condition=None, limit=None):

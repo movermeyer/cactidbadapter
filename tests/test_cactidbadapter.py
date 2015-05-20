@@ -49,8 +49,13 @@ class UnitTests(unittest.TestCase):
 
     def test_get_host(self):
         """Get host from cacti db."""
+        hostname = '127.0.0.1'
+
         hosts = self.obj.get_host()
-        self.assertEqual(hosts[0]['hostname'], '127.0.0.1')
+        self.assertEqual(hosts[0]['hostname'], hostname)
+
+        hosts = self.obj.get_host(condition='hostname = "%s"' % hostname)
+        self.assertEqual(hosts[0]['hostname'], hostname)
 
     def test_host_columns(self):
         """Check columns values."""
