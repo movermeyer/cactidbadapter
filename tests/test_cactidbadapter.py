@@ -18,7 +18,7 @@ class UnitTests(unittest.TestCase):
         """Setup."""
         self.obj = CactiDBAdapter(database='cacti',
                                   user='root',
-                                  password='password',
+                                  password='',
                                   host='localhost',
                                   port=3306)
 
@@ -26,7 +26,7 @@ class UnitTests(unittest.TestCase):
         """test cactidbadapter."""
         self.assertEqual(self.obj.database, 'cacti')
         self.assertEqual(self.obj.user, 'root')
-        self.assertEqual(self.obj.password, 'password')
+        self.assertEqual(self.obj.password, '')
         self.assertEqual(self.obj.host, 'localhost')
         self.assertEqual(self.obj.port, 3306)
         self.assertEqual(self.obj.charset, 'utf8mb4')

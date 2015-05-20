@@ -10,7 +10,7 @@ def main():
     """Main."""
     cacti = CactiDBAdapter(database='cacti',
                            user='root',
-                           password='password',
+                           password='',
                            host='localhost',
                            port=3306)
 
