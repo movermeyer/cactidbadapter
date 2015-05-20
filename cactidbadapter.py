@@ -87,6 +87,9 @@ class CactiDBAdapter(object):
             :columns (list optional): Specifying display columns.
                 Default is '['id', 'hostname', 'description',]'.
 
+                Please see available column names with
+                    this method "host_columns()".
+
         Returns:
 
             :list (of dict): Return nodes list of dictionary.
@@ -95,67 +98,29 @@ class CactiDBAdapter(object):
 
             Default columns are 'id, hostname, description' ::
 
-                >>> obj.get_devices()
+                >>> obj.get_host()
                 [{u'id': 1, u'hostname': u'NODE1',
                   u'description': u'test node.'}]
 
             Specified all columns. ::
 
-                >>> obj.get_devices(columns=['*'])
+                >>> obj.get_host(columns=['*'])
                 [{u'id': 1, u'hostname': u'NODE1', ...... }]
 
             Same with default columns. ::
 
-                >>> obj.get_devices(columns=['id',
-                                             'hostname',
-                                             'description'])
+                >>> obj.get_host(columns=['id',
+                                          'hostname',
+                                          'description'])
                 [{u'id': 1, u'hostname': u'NODE1',
                   u'description': u'test node.'}]
 
             Specified 'id, hostname, status' columns. ::
 
-                >>> obj.get_devices(columns=['id',
-                                             'hostname',
-                                             'status'])
+                >>> obj.get_host(columns=['id',
+                                          'hostname',
+                                          'status'])
                 [{u'id': 1, u'hostname': u'NODE1', u'status': 3}]
-
-            Available column names ::
-
-                availability
-                availability_method
-                avg_time
-                cur_time
-                description
-                device_threads
-                disabled
-                failed_polls
-                host_template_id
-                hostname
-                id
-                max_oids
-                max_time
-                min_time
-                notes
-                ping_method
-                ping_port
-                ping_retries
-                ping_timeout
-                snmp_auth_protocol
-                snmp_community
-                snmp_context
-                snmp_password
-                snmp_port
-                snmp_priv_passphrase
-                snmp_priv_protocol
-                snmp_timeout
-                snmp_username
-                snmp_version
-                status
-                status_event_count
-                status_fail_date
-                status_last_error
-                status_rec_date
-                total_polls
 
         """
         if columns is None:
@@ -179,6 +144,9 @@ class CactiDBAdapter(object):
             :columns (list optional): Specifying display columns.
                 Default is "('id', 'hostname', 'description',
                              'field_name', 'field_value', 'oid')".
+
+                Please see available column names with
+                    this method "host_snmp_cache_columns()".
 
             :limit (int): limit value(integer).
                 Default is None.
@@ -212,5 +180,120 @@ class CactiDBAdapter(object):
         return self.request(sql)
 
     def get_ifip(self, columns=None, limit=None):
-        """Get ifIP values from "host_snmp_cache" table."""
+        """Get ifIP values from "host_snmp_cache" table.
+
+        Args:
+
+            :columns (list optional): Specifying display columns.
+                Default is "('id', 'hostname', 'description',
+                             'field_name', 'field_value', 'oid')".
+
+                Please see available column names with
+                    this method "host_snmp_cache_columns()".
+
+            :limit (int): limit value(integer).
+                Default is None.
+
+        Returns:
+
+            :list (of dict): Return fetched snmp values list of dictionary.
+
+        """
         return self.get_snmp_cache(('ifIP',), columns=columns, limit=limit)
+
+    @staticmethod
+    def host_columns():
+        """Available Columns.
+
+        Returns:
+
+            :list (of str): Return host table column values.
+
+        """
+        return ('availability',
+                'availability_method',
+                'avg_time',
+                'cur_time',
+                'description',
+                'device_threads',
+                'disabled',
+                'failed_polls',
+                'host_template_id',
+                'hostname',
+                'id',
+                'max_oids',
+                'max_time',
+                'min_time',
+                'notes',
+                'ping_method',
+                'ping_port',
+                'ping_retries',
+                'ping_timeout',
+                'snmp_auth_protocol',
+                'snmp_community',
+                'snmp_context',
+                'snmp_password',
+                'snmp_port',
+                'snmp_priv_passphrase',
+                'snmp_priv_protocol',
+                'snmp_timeout',
+                'snmp_username',
+                'snmp_version',
+                'status',
+                'status_event_count',
+                'status_fail_date',
+                'status_last_error',
+                'status_rec_date',
+                'total_polls',)
+
+    @staticmethod
+    def host_snmp_cache_columns():
+        """Available Columns.
+
+        Returns:
+
+            :list (of str): Return host_snmp_cache table column values.
+
+        """
+        return ('availability',
+                'availability_method',
+                'avg_time',
+                'cur_time',
+                'description',
+                'device_threads',
+                'disabled',
+                'failed_polls',
+                'field_name',
+                'field_value',
+                'host_id',
+                'host_template_id',
+                'hostname',
+                'id',
+                'max_oids',
+                'max_time',
+                'min_time',
+                'notes',
+                'oid',
+                'ping_method',
+                'ping_port',
+                'ping_retries',
+                'ping_timeout',
+                'present',
+                'snmp_auth_protocol',
+                'snmp_community',
+                'snmp_context',
+                'snmp_index',
+                'snmp_password',
+                'snmp_port',
+                'snmp_priv_passphrase',
+                'snmp_priv_protocol',
+                'snmp_timeout',
+                'snmp_username',
+                'snmp_version',
+                'snmp_query_id',
+                'status',
+                'status_event_count',
+                'status_fail_date',
+                'status_last_error',
+                'status_rec_date',
+                'total_polls',)
