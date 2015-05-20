@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""cactidbadapter setup.py"""
+"""cactidbadapter setup.py."""
 
 from setuptools import setup
 from setuptools.command.test import test as TestCommand
@@ -42,7 +42,6 @@ classifiers = [
     "Programming Language :: Python :: 2",
     "Programming Language :: Python :: 2.7",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.3",
     "Programming Language :: Python :: 3.4",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
@@ -52,7 +51,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.rst')) as _file:
     README = _file.read()
 
-requires = []
+requires = ['PyMySQL']
 
 with open('requirements.txt', 'w') as _file:
     _file.write('\n'.join(requires))
@@ -68,7 +67,6 @@ setup(
     license='MIT',
     classifiers=classifiers,
     py_modules=['cactidbadapter'],
-    # packages=['cactidbadapter'],
     data_files=[],
     install_requires=requires,
     include_package_data=True,
