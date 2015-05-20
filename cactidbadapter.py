@@ -134,7 +134,8 @@ class CactiDBAdapter(object):
 
         return self.request(sql)
 
-    def get_snmp_cache(self, field_names, columns=None, limit=None):
+    def get_snmp_cache(self, field_names,
+                       columns=None, condition=None, limit=None):
         """Get from "host_snmp_cache" table.
 
         Args:
@@ -148,7 +149,10 @@ class CactiDBAdapter(object):
                 Please see available column names with
                     this method "host_snmp_cache_columns()".
 
-            :limit (int): limit value(integer).
+            :condition (str): This string is used with where condition.
+                Default is None.
+
+            :limit (int): Limit value(integer).
                 Default is None.
 
         Returns:
@@ -165,21 +169,24 @@ class CactiDBAdapter(object):
         else:
             limit = 'limit %d' % limit
 
-        condition = " or ".join(
+        where_condition = " or ".join(
             ['field_name = "%s"' % field_name for field_name in field_names])
+
+        if condition is not None:
+            where_condition = '%s and %s' % (where_condition, condition)
 
         sql = " ".join([
             'select',
             ', '.join(columns),
             'from host left join host_snmp_cache',
             'on host.id = host_snmp_cache.host_id',
-            'where %s' % condition,
+            'where %s' % where_condition,
             limit,
         ])
 
         return self.request(sql)
 
-    def get_ifip(self, columns=None, limit=None):
+    def get_ifip(self, columns=None, condition=None, limit=None):
         """Get ifIP values from "host_snmp_cache" table.
 
         Args:
@@ -191,6 +198,9 @@ class CactiDBAdapter(object):
                 Please see available column names with
                     this method "host_snmp_cache_columns()".
 
+            :condition (str): This string is used with where condition.
+                Default is None.
+
             :limit (int): limit value(integer).
                 Default is None.
 
@@ -199,7 +209,10 @@ class CactiDBAdapter(object):
             :list (of dict): Return fetched snmp values list of dictionary.
 
         """
-        return self.get_snmp_cache(('ifIP',), columns=columns, limit=limit)
+        return self.get_snmp_cache(('ifIP',),
+                                   columns=columns,
+                                   condition=condition,
+                                   limit=limit)
 
     @staticmethod
     def host_columns():

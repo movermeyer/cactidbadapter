@@ -94,6 +94,14 @@ class UnitTests(unittest.TestCase):
                 self.assertEqual(val['field_name'], 'ifName')
                 self.assertEqual(val['field_value'], 'lo')
 
+        # condition
+        hostname = '127.0.0.1'
+        vals = self.obj.get_snmp_cache(('ifIP', 'ifName'),
+                                       condition='hostname = "%s"' % hostname)
+        for val in vals:
+            self.assertEqual(val['hostname'], hostname)
+
+        # limit check
         vals = self.obj.get_snmp_cache(('ifIP',), limit=1)
         self.assertEqual(len(vals), 1)
 
