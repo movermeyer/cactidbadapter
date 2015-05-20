@@ -16,20 +16,36 @@ class UnitTests(unittest.TestCase):
 
     def setUp(self):
         """Setup."""
-        self.obj = CactiDBAdapter(database='cacti',
-                                  user='root',
+        self.obj = CactiDBAdapter(user='root',
                                   password='',
                                   host='localhost',
                                   port=3306)
 
     def test_attrs(self):
         """test cactidbadapter."""
-        self.assertEqual(self.obj.database, 'cacti')
-        self.assertEqual(self.obj.user, 'root')
-        self.assertEqual(self.obj.password, '')
-        self.assertEqual(self.obj.host, 'localhost')
-        self.assertEqual(self.obj.port, 3306)
-        self.assertEqual(self.obj.charset, 'utf8mb4')
+        # check default values
+        obj = CactiDBAdapter()
+
+        self.assertEqual(obj.database, 'cacti')
+        self.assertEqual(obj.user, 'root')
+        self.assertEqual(obj.password, '')
+        self.assertEqual(obj.host, 'localhost')
+        self.assertEqual(obj.port, 3306)
+        self.assertEqual(obj.charset, 'utf8mb4')
+
+        # check specified values
+        obj = CactiDBAdapter(user='admin',
+                             password='password',
+                             host='localhost',
+                             database='aaaaa',
+                             port=12345)
+
+        self.assertEqual(obj.database, 'aaaaa')
+        self.assertEqual(obj.user, 'admin')
+        self.assertEqual(obj.password, 'password')
+        self.assertEqual(obj.host, 'localhost')
+        self.assertEqual(obj.port, 12345)
+        self.assertEqual(obj.charset, 'utf8mb4')
 
     def test_get_devices(self):
         """Get devices from cacti db."""

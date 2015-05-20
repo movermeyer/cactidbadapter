@@ -19,17 +19,24 @@ class CactiDBAdapter(object):
         Args:
 
             :user (str): user name.
+                Default is 'root'.
             :password (str): user password.
+                Default is ''.
             :host (str): MySQL host name.
+                Default is 'localhost'.
             :port (int): MySQL connect port.
+                Default is 3306.
             :database (str): MySQL connect DB name.
+                Default is 'cacti'.
+            :charset(str): MySQL connect DB name.
+                Default is 'utf8mb4'.
 
         """
-        self.host = kwargs['host']
-        self.user = kwargs['user']
-        self.password = kwargs['password']
-        self.database = kwargs['database']
-        self.port = kwargs['port']
+        self.user = kwargs.get('user', 'root')
+        self.password = kwargs.get('password', '')
+        self.host = kwargs.get('host', 'localhost')
+        self.database = kwargs.get('database', 'cacti')
+        self.port = kwargs.get('port', 3306)
         self.charset = kwargs.get('charset', 'utf8mb4')
         self.cursorclass = pymysql.cursors.DictCursor
         self.connection = None

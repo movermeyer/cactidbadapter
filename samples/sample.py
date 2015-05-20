@@ -8,8 +8,7 @@ from pprint import pprint
 
 def main():
     """Main."""
-    cacti = CactiDBAdapter(database='cacti',
-                           user='root',
+    cacti = CactiDBAdapter(user='root',
                            password='',
                            host='localhost',
                            port=3306)
