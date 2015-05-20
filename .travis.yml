@@ -2,8 +2,11 @@ language: python
 sudo: false
 python:
 - 2.7
-- 3.3
 - 3.4
+- pypy
+
+before_script:
+- bash utils/test_setup.sh
 
 install:
 - pip install virtualenv tox docutils coveralls
