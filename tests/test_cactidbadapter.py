@@ -69,7 +69,8 @@ class UnitTests(unittest.TestCase):
 
     def test_get_snmp_cache(self):
         """Get fetched snmp values from cacti db."""
-        vals = self.obj.get_snmp_cache(('ifIndex',))
+        condition = 'field_name = "ifindex"'
+        vals = self.obj.get_snmp_cache(condition=condition)
         for val in vals:
             if val['field_value'] == '1':
                 self.assertEqual(val['description'], 'Localhost')
@@ -77,7 +78,8 @@ class UnitTests(unittest.TestCase):
                 self.assertEqual(val['field_name'], 'ifIndex')
                 self.assertEqual(val['field_value'], '1')
 
-        vals = self.obj.get_snmp_cache(('ifIP',))
+        condition = 'field_name = "ifIP"'
+        vals = self.obj.get_snmp_cache(condition=condition)
         for val in vals:
             if val['field_value'] == '10.0.2.15':
                 self.assertEqual(val['description'], 'Localhost')
@@ -85,7 +87,8 @@ class UnitTests(unittest.TestCase):
                 self.assertEqual(val['field_name'], 'ifIP')
                 self.assertEqual(val['field_value'], '10.0.2.15')
 
-        vals = self.obj.get_snmp_cache(('ifIP', 'ifName'))
+        condition = 'field_name = "ifIP" or field_name = "ifName"'
+        vals = self.obj.get_snmp_cache(condition=condition)
         for val in vals:
             if val['field_value'] == '10.0.2.15':
                 self.assertEqual(val['description'], 'Localhost')
@@ -101,16 +104,19 @@ class UnitTests(unittest.TestCase):
 
         # condition
         hostname = '127.0.0.1'
-        vals = self.obj.get_snmp_cache(('ifIP', 'ifName'),
-                                       condition='hostname = "%s"' % hostname)
+        condition = ('field_name = "ifIP"'
+                     ' or field_name = "ifName"'
+                     ' and hostname = "%s"' % hostname)
+        vals = self.obj.get_snmp_cache(condition=condition)
         for val in vals:
             self.assertEqual(val['hostname'], hostname)
 
         # limit check
-        vals = self.obj.get_snmp_cache(('ifIP',), limit=1)
+        condition = 'field_name = "ifIP"'
+        vals = self.obj.get_snmp_cache(condition=condition, limit=1)
         self.assertEqual(len(vals), 1)
 
-        vals = self.obj.get_snmp_cache(('ifIP',), limit=2)
+        vals = self.obj.get_snmp_cache(condition=condition, limit=2)
         self.assertEqual(len(vals), 2)
 
     def test_get_ifip(self):

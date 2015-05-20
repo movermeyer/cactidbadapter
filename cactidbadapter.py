@@ -79,7 +79,36 @@ class CactiDBAdapter(object):
 
         return res
 
-    def get_host(self, columns=None, condition=None):
+    def select_query(self, columns, table, condition, limit):
+        """Make Seletct SQL string.
+
+        Args:
+
+            :columns (list): Specifying display columns.
+            :condition (str): This string is used with where condition.
+            :limit (int): Limit value(integer).
+
+        Returns:
+
+            :list (of dict): Return fetched snmp values list of dictionary.
+
+        """
+        columns = ', '.join(columns)
+
+        sql = [
+            'select',
+            columns,
+            'from %s' % table]
+
+        if condition:
+            sql.append('where %s' % condition)
+
+        if limit:
+            sql.append('limit %d' % limit)
+
+        return self.request(' '.join(sql))
+
+    def get_host(self, columns=None, condition=None, limit=None):
         """Get cacti db registered devices.
 
         Args:
@@ -90,7 +119,10 @@ class CactiDBAdapter(object):
                 Please see available column names with
                     this method "host_columns()".
 
-            :condition (str): This string is used with where condition.
+            :condition (str optional): This string is used with
+                where condition. Default is None.
+
+            :limit (int optional): Limit value(integer).
                 Default is None.
 
         Returns:
@@ -129,23 +161,13 @@ class CactiDBAdapter(object):
         if columns is None:
             columns = ('id', 'hostname', 'description')
 
-        sql = [
-            'select',
-            ', '.join(columns),
-            'from host']
+        table = 'host'
+        return self.select_query(columns, table, condition, limit)
 
-        if condition:
-            sql.append('where %s' % condition)
-
-        return self.request(' '.join(sql))
-
-    def get_snmp_cache(self, field_names,
-                       columns=None, condition=None, limit=None):
+    def get_snmp_cache(self, columns=None, condition=None, limit=None):
         """Get from "host_snmp_cache" table.
 
         Args:
-
-            :field_names (list): Specifying display field_names.
 
             :columns (list optional): Specifying display columns.
                 Default is "('id', 'hostname', 'description',
@@ -154,10 +176,10 @@ class CactiDBAdapter(object):
                 Please see available column names with
                     this method "host_snmp_cache_columns()".
 
-            :condition (str): This string is used with where condition.
-                Default is None.
+            :condition (str optional): This string is used with
+                where condition. Default is None.
 
-            :limit (int): Limit value(integer).
+            :limit (int optional): Limit value(integer).
                 Default is None.
 
         Returns:
@@ -169,27 +191,9 @@ class CactiDBAdapter(object):
             columns = ('id', 'hostname', 'description',
                        'field_name', 'field_value', 'oid')
 
-        if limit is None:
-            limit = ''
-        else:
-            limit = 'limit %d' % limit
-
-        where_condition = " or ".join(
-            ['field_name = "%s"' % field_name for field_name in field_names])
-
-        if condition is not None:
-            where_condition = '%s and %s' % (where_condition, condition)
-
-        sql = " ".join([
-            'select',
-            ', '.join(columns),
-            'from host left join host_snmp_cache',
-            'on host.id = host_snmp_cache.host_id',
-            'where %s' % where_condition,
-            limit,
-        ])
-
-        return self.request(sql)
+        table = ('host left join host_snmp_cache'
+                 ' on host.id = host_snmp_cache.host_id')
+        return self.select_query(columns, table, condition, limit)
 
     def get_ifip(self, columns=None, condition=None, limit=None):
         """Get ifIP values from "host_snmp_cache" table.
@@ -203,10 +207,10 @@ class CactiDBAdapter(object):
                 Please see available column names with
                     this method "host_snmp_cache_columns()".
 
-            :condition (str): This string is used with where condition.
-                Default is None.
+            :condition (str optional): This string is used with
+                where condition. Default is None.
 
-            :limit (int): limit value(integer).
+            :limit (int optional): limit value(integer).
                 Default is None.
 
         Returns:
@@ -214,8 +218,8 @@ class CactiDBAdapter(object):
             :list (of dict): Return fetched snmp values list of dictionary.
 
         """
-        return self.get_snmp_cache(('ifIP',),
-                                   columns=columns,
+        condition = 'field_name = "ifIP"'
+        return self.get_snmp_cache(columns=columns,
                                    condition=condition,
                                    limit=limit)
 
