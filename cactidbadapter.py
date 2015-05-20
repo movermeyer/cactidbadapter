@@ -102,6 +102,44 @@ class CactiDBAdapter(object):
                                          'status'])
             [{u'id': 1, u'hostname': u'NODE1', u'status': 3}]
 
+        Available column names ::
+
+            availability
+            availability_method
+            avg_time
+            cur_time
+            description
+            device_threads
+            disabled
+            failed_polls
+            host_template_id
+            hostname
+            id
+            max_oids
+            max_time
+            min_time
+            notes
+            ping_method
+            ping_port
+            ping_retries
+            ping_timeout
+            snmp_auth_protocol
+            snmp_community
+            snmp_context
+            snmp_password
+            snmp_port
+            snmp_priv_passphrase
+            snmp_priv_protocol
+            snmp_timeout
+            snmp_username
+            snmp_version
+            status
+            status_event_count
+            status_fail_date
+            status_last_error
+            status_rec_date
+            total_polls
+
         """
         if columns is None:
             columns = ('id', 'hostname', 'description')
