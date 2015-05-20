@@ -62,7 +62,7 @@ class CactiDBAdapter(object):
 
         return res
 
-    def get_devices(self, columns=('id', 'hostname', 'description')):
+    def get_devices(self, columns=None):
         """Get cacti db registered devices.
 
         Returns:
@@ -96,6 +96,9 @@ class CactiDBAdapter(object):
             [{u'id': 1, u'hostname': u'NODE1', u'status': 3}]
 
         """
+        if columns is None:
+            columns = ('id', 'hostname', 'description')
+
         sql = " ".join([
             'select',
             ', '.join(columns),
@@ -104,13 +107,11 @@ class CactiDBAdapter(object):
 
         return self.request(sql)
 
-    def get_snmp_cache(self, keywords, columns=('id',
-                                                'hostname',
-                                                'description',
-                                                'field_name',
-                                                'field_value',
-                                                'oid')):
-        """This method assumes "host_snmp_cache" table."""
+    def get_snmp_cache(self, keywords, columns=None):
+        """Get from "host_snmp_cache" table."""
+        if columns is None:
+            columns = ('id', 'hostname', 'description',
+                       'field_name', 'field_value', 'oid')
 
         condition = " or ".join(
             ['field_name = "%s"' % keyword for keyword in keywords])
