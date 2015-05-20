@@ -24,6 +24,18 @@ Get from Github ::
 
 Using example
 --------------
+Example for get_devices(). ::
+
+    >>> from cactidbadapter import CactiDBAdapter
+    >>> cacti = CactiDBAdapter(database='cacti',
+    ...                        user='admin',
+    ...                        password='*****',
+    ...                        port=3306)
+    >>> cacti.get_devices()
+    [{'hostname': '127.0.0.1', 'id': 1, 'description': 'Localhost'}]
+
+Example for get_devices() with option . ::
+
 
 See also
 ---------
