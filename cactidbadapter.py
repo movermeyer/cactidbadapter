@@ -198,6 +198,8 @@ class CactiDBAdapter(object):
     def get_ifip(self, columns=None, condition=None, limit=None):
         """Get ifIP values from "host_snmp_cache" table.
 
+        This is a wrapper method of "get_snmp_cache()".
+
         Args:
 
             :columns (list optional): Specifying display columns.
