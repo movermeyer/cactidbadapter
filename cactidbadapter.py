@@ -235,50 +235,20 @@ class CactiDBAdapter(object):
                                    condition=condition,
                                    limit=limit)
 
-    @staticmethod
-    def host_columns():
-        """Available Columns.
+    def host_columns(self):
+        """Available host table columns.
 
         Returns:
 
             :list (of str): Return host table column values.
 
         """
-        return ('availability',
-                'availability_method',
-                'avg_time',
-                'cur_time',
-                'description',
-                'device_threads',
-                'disabled',
-                'failed_polls',
-                'host_template_id',
-                'hostname',
-                'id',
-                'max_oids',
-                'max_time',
-                'min_time',
-                'notes',
-                'ping_method',
-                'ping_port',
-                'ping_retries',
-                'ping_timeout',
-                'snmp_auth_protocol',
-                'snmp_community',
-                'snmp_context',
-                'snmp_password',
-                'snmp_port',
-                'snmp_priv_passphrase',
-                'snmp_priv_protocol',
-                'snmp_timeout',
-                'snmp_username',
-                'snmp_version',
-                'status',
-                'status_event_count',
-                'status_fail_date',
-                'status_last_error',
-                'status_rec_date',
-                'total_polls',)
+        columns = ('*',)
+        limit = 1
+        host = self.get_host(columns=columns, limit=limit)[0]
+        column_names = list(host.keys())
+        column_names.sort()
+        return column_names
 
     @staticmethod
     def host_snmp_cache_columns():

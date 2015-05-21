@@ -59,8 +59,8 @@ class UnitTests(unittest.TestCase):
 
     def test_host_columns(self):
         """Check column values."""
-        columns = CactiDBAdapter.host_columns()
-        self.assertEqual(len(columns), 35)
+        vals = self.obj.host_columns()
+        self.assertEqual(type(vals), list)
 
     def test_host_snmp_cache_columns(self):
         """Check column values."""
