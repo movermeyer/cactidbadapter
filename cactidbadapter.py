@@ -195,6 +195,16 @@ class CactiDBAdapter(object):
                  ' on host.id = host_snmp_cache.host_id')
         return self.select_query(columns, table, condition, limit)
 
+    def host_snmp_cache_field_names(self):
+        """Get field_name(s) from host_snmp_cache table."""
+        field_names = []
+        columns = ('field_name',)
+        for val in self.get_snmp_cache(columns=columns):
+            field_names.append(val['field_name'])
+        _field_names = list(set(field_names))
+        _field_names.sort()
+        return _field_names
+
     def get_ifip(self, columns=None, condition=None, limit=None):
         """Get ifIP values from "host_snmp_cache" table.
 
