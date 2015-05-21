@@ -235,99 +235,45 @@ class CactiDBAdapter(object):
                                    condition=condition,
                                    limit=limit)
 
-    @staticmethod
-    def host_columns():
-        """Available Columns.
+    def host_columns(self):
+        """Available host table columns.
 
         Returns:
 
             :list (of str): Return host table column values.
 
         """
-        return ('availability',
-                'availability_method',
-                'avg_time',
-                'cur_time',
-                'description',
-                'device_threads',
-                'disabled',
-                'failed_polls',
-                'host_template_id',
-                'hostname',
-                'id',
-                'max_oids',
-                'max_time',
-                'min_time',
-                'notes',
-                'ping_method',
-                'ping_port',
-                'ping_retries',
-                'ping_timeout',
-                'snmp_auth_protocol',
-                'snmp_community',
-                'snmp_context',
-                'snmp_password',
-                'snmp_port',
-                'snmp_priv_passphrase',
-                'snmp_priv_protocol',
-                'snmp_timeout',
-                'snmp_username',
-                'snmp_version',
-                'status',
-                'status_event_count',
-                'status_fail_date',
-                'status_last_error',
-                'status_rec_date',
-                'total_polls',)
+        columns = ('*',)
+        limit = 1
+        record = self.get_host(columns=columns, limit=limit)[0]
+        return self.get_columns(record)
 
-    @staticmethod
-    def host_snmp_cache_columns():
-        """Available Columns.
+    def host_snmp_cache_columns(self):
+        """Available host_snmp_cache table columns.
 
         Returns:
 
             :list (of str): Return host_snmp_cache table column values.
 
         """
-        return ('availability',
-                'availability_method',
-                'avg_time',
-                'cur_time',
-                'description',
-                'device_threads',
-                'disabled',
-                'failed_polls',
-                'field_name',
-                'field_value',
-                'host_id',
-                'host_template_id',
-                'hostname',
-                'id',
-                'max_oids',
-                'max_time',
-                'min_time',
-                'notes',
-                'oid',
-                'ping_method',
-                'ping_port',
-                'ping_retries',
-                'ping_timeout',
-                'present',
-                'snmp_auth_protocol',
-                'snmp_community',
-                'snmp_context',
-                'snmp_index',
-                'snmp_password',
-                'snmp_port',
-                'snmp_priv_passphrase',
-                'snmp_priv_protocol',
-                'snmp_timeout',
-                'snmp_username',
-                'snmp_version',
-                'snmp_query_id',
-                'status',
-                'status_event_count',
-                'status_fail_date',
-                'status_last_error',
-                'status_rec_date',
-                'total_polls',)
+        columns = ('*',)
+        limit = 1
+        record = self.get_snmp_cache(columns=columns, limit=limit)[0]
+        return self.get_columns(record)
+
+    @staticmethod
+    def get_columns(record):
+        """Available table columns.
+
+        Args:
+
+            :dict (of str): One record dict.
+
+        Returns:
+
+            :list (of str): Return table column values.
+
+        """
+        column_names = list(record.keys())
+        column_names.sort()
+        return column_names
