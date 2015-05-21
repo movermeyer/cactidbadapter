@@ -31,7 +31,7 @@ Example for get_devices(). ::
     ...                        user='admin',
     ...                        password='*****',
     ...                        port=3306)
-    >>> cacti.get_devices()
+    >>> cacti.get_host()
     [{'hostname': '127.0.0.1', 'id': 1, 'description': 'Localhost'}]
 
 Example for get_devices() with option . ::
