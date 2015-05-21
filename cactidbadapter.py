@@ -196,7 +196,13 @@ class CactiDBAdapter(object):
         return self.select_query(columns, table, condition, limit)
 
     def host_snmp_cache_field_names(self):
-        """Get field_name(s) from host_snmp_cache table."""
+        """Get field_name(s) from host_snmp_cache table.
+
+        Returns:
+
+            :list (of str): Return fetched host_snmp_cache values list.
+
+        """
         field_names = []
         columns = ('field_name',)
         for val in self.get_snmp_cache(columns=columns):
