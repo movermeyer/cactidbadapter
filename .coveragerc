@@ -1,12 +1,10 @@
 [run]
 source=
-    cactidbadapter/
-    ; cactidbadapter.py
+    cactidbadapter.py
 
 omit=
     */__*,
     */tests/*,
-    */migrations/*
 
 [html]
 directory=docs/htmlcov
