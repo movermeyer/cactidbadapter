@@ -58,12 +58,12 @@ with open('requirements.txt', 'w') as _file:
 
 setup(
     name="cactidbadapter",
-    version="0.0.0",
-    description='cactidbadapter',
+    version="0.1.0",
+    description='CactiDB Adapter.',
     long_description=README,
     author='Toshikatsu Murakoshi',
     author_email='mtoshi.g@gmail.com',
-    url='rewrite here.',
+    url='https://github.com/mtoshi/cactidbadapter',
     license='MIT',
     classifiers=classifiers,
     py_modules=['cactidbadapter'],
