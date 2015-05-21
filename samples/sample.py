@@ -16,53 +16,57 @@ def main():
     pprint('###################')
     pprint('# Get Devices (Default columns)')
     pprint('###################')
-    res = cacti.get_devices()
+    res = cacti.get_host()
     pprint(res)
 
     pprint('###################')
     pprint('# Get Devices (id, hostname, description.)')
     pprint('###################')
-    res = cacti.get_devices(columns=('id', 'hostname', 'description'))
+    res = cacti.get_host(columns=('id', 'hostname', 'description'))
     pprint(res)
 
     pprint('###################')
     pprint('# Get Devices (All columns.)')
     pprint('###################')
-    res = cacti.get_devices(columns=('*',))
+    res = cacti.get_host(columns=('*',))
     pprint(res)
 
     pprint('###################')
     pprint('# Get Devices (Only hostname and status.)')
     pprint('###################')
-    res = cacti.get_devices(columns=('hostname', 'status'))
+    res = cacti.get_host(columns=('hostname', 'status'))
     pprint(res)
 
     pprint('###################')
     pprint('# Get SNMP Cache (ifIndex values.)')
     pprint('###################')
-    res = cacti.get_snmp_cache(('ifIndex',))
+    condition = 'field_name = "ifIndex"'
+    res = cacti.get_snmp_cache(condition=condition)
     pprint(res)
 
     pprint('###################')
     pprint('# Get SNMP Cache (ifIndex and ifName values.)')
     pprint('###################')
-    res = cacti.get_snmp_cache(('ifIndex', 'ifName'))
+    condition = 'field_name = "ifIndex" or field_name = "ifName"'
+    res = cacti.get_snmp_cache(condition=condition)
     pprint(res)
 
     pprint('###################')
     pprint('# Get SNMP Cache (ifIndex and ifIP values.)')
     pprint('###################')
-    res = cacti.get_snmp_cache(('ifName', 'ifIP'))
+    condition = 'field_name = "ifName" or field_name = "ifIP"'
+    res = cacti.get_snmp_cache(condition=condition)
     pprint(res)
 
     pprint('###################')
     pprint('# Get SNMP Cache (ifIndex and ifIP values')
     pprint('# and specified columns.)')
     pprint('###################')
-    res = cacti.get_snmp_cache(('ifName', 'ifIP'),
-                               columns=('hostname',
-                                        'field_value',
-                                        'field_name'))
+    condition = 'field_name = "ifName" or field_name = "ifIP"'
+    columns = ('hostname', 'field_value', 'field_name')
+    limit = 2
+    res = cacti.get_snmp_cache(condition=condition,
+                               columns=columns, limit=limit)
     pprint(res)
 
 if __name__ == "__main__":
