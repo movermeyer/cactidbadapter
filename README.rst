@@ -20,7 +20,7 @@ Requirements
 
 Installation
 -------------
-Get from PyPI::
+Get from PyPI ::
 
    $ pip install cactidbadapter
 
