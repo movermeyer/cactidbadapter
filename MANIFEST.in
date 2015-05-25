@@ -3,4 +3,3 @@ include README.rst
 include LICENSE
 include requirements.txt
 recursive-include docs *.rst
-recursive-include cactidbadapter *.py *.txt
