@@ -49,12 +49,12 @@ Example for get_host() hostname and description columns. ::
 
 Example for get_host() all columns. ::
 
-    >>> cacti.get_host(columns=('*'),)
+    >>> cacti.get_host(columns=('*',))
     [{'hostname': '127.0.0.1', 'id': 1, 'description': 'Localhost', 'snmp_version': 2, 'snmp_timeout': 500, ... }]
 
 Example for get_host() all columns and limit 1. ::
 
-    >>> cacti.get_host(columns=('*'), limit=1)
+    >>> cacti.get_host(columns=('*',), limit=1)
     [{'hostname': '127.0.0.1', 'id': 1, 'description': 'Localhost', 'snmp_version': 2, 'snmp_timeout': 500, ... }]
 
 Example for show host table columns. ::
