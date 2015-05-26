@@ -52,6 +52,7 @@ class UnitTests(unittest.TestCase):
         hostname = '127.0.0.1'
 
         hosts = self.obj.get_host()
+        self.assertEqual(len(hosts), 3)
         self.assertEqual(hosts[0]['hostname'], hostname)
 
         hosts = self.obj.get_host(condition='hostname = "%s"' % hostname)
