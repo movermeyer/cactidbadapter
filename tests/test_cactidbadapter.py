@@ -153,6 +153,15 @@ class UnitTests(unittest.TestCase):
                 self.assertEqual(val['oid'],
                                  '.1.3.6.1.2.1.4.20.1.2.192.168.56.2')
 
+    def test_get_sysdescr(self):
+        """Get fetched snmp sysDescr values from cacti db."""
+        sysdescr = ('Linux ubuntu14 3.16.0-23-generic '
+                    '#31-Ubuntu SMP Tue Oct 21 17:56:17 UTC 2014 x86_64')
+        vals = self.obj.get_sysname()
+        for val in vals:
+            if val['field_value'] == sysdescr:
+                self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.1.0')
+
     def test_get_sysname(self):
         """Get fetched snmp sysName values from cacti db."""
         vals = self.obj.get_sysname()

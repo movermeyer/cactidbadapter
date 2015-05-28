@@ -241,6 +241,36 @@ class CactiDBAdapter(object):
                                    condition=condition,
                                    limit=limit)
 
+    def get_sysdescr(self, columns=None, condition=None, limit=None):
+        """Get sysDescr values from "host_snmp_cache" table.
+
+        This is a wrapper method of "get_snmp_cache()".
+
+        Args:
+
+            :columns (list optional): Specifying display columns.
+                Default is "('id', 'hostname', 'description',
+                             'field_name', 'field_value', 'oid')".
+
+                Please see available column names with
+                    this method "host_snmp_cache_columns()".
+
+            :condition (str optional): This string is used with
+                where condition. Default is None.
+
+            :limit (int optional): limit value(integer).
+                Default is None.
+
+        Returns:
+
+            :list (of dict): Return fetched snmp values list of dictionary.
+
+        """
+        condition = 'field_name = "sysDescr"'
+        return self.get_snmp_cache(columns=columns,
+                                   condition=condition,
+                                   limit=limit)
+
     def get_sysname(self, columns=None, condition=None, limit=None):
         """Get sysName values from "host_snmp_cache" table.
 
