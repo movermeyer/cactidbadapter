@@ -709,7 +709,7 @@ CREATE TABLE `host` (
 
 LOCK TABLES `host` WRITE;
 /*!40000 ALTER TABLE `host` DISABLE KEYS */;
-INSERT INTO `host` VALUES (1,8,'Localhost','127.0.0.1','','public',2,'','','','','','',161,500,2,2,23,400,1,10,1,'',3,0,'0000-00-00 00:00:00','0000-00-00 00:00:00','',0.07000,0.86000,0.68000,0.56572,7,0,100.00000),(2,8,'Localhost2','127.0.0.1','','public',2,'','','','','','',161,500,2,2,23,400,1,10,1,'',0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00','',9.99999,0.00000,0.00000,0.00000,0,0,100.00000),(3,8,'Localhost3','127.0.0.1','','public',2,'','','','','','',161,500,2,2,23,400,1,10,1,'',0,0,'0000-00-00 00:00:00','0000-00-00 00:00:00','',9.99999,0.00000,0.00000,0.00000,0,0,100.00000);
+INSERT INTO `host` VALUES (1,8,'Localhost','127.0.0.1','','public',2,'','','','','','',161,500,2,2,23,400,1,10,1,'',3,0,'0000-00-00 00:00:00','0000-00-00 00:00:00','',0.07000,7.72000,0.83000,1.28819,11,0,100.00000),(2,8,'Localhost2','127.0.0.1','','public',2,'','','','','','',161,500,2,2,23,400,1,10,1,'',3,0,'0000-00-00 00:00:00','0000-00-00 00:00:00','',0.07000,7.72000,0.83000,1.28819,11,0,100.00000),(3,8,'Localhost3','127.0.0.1','','public',2,'','','','','','',161,500,2,2,23,400,1,10,1,'',3,0,'0000-00-00 00:00:00','0000-00-00 00:00:00','',0.07000,7.72000,0.83000,1.28819,11,0,100.00000);
 /*!40000 ALTER TABLE `host` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -768,7 +768,7 @@ CREATE TABLE `host_snmp_cache` (
 
 LOCK TABLES `host_snmp_cache` WRITE;
 /*!40000 ALTER TABLE `host_snmp_cache` DISABLE KEYS */;
-INSERT INTO `host_snmp_cache` VALUES (1,6,'dskDevice','/dev/sda1','/dev/sda1','',1),(1,6,'dskMount','/','/dev/sda1','',1),(1,1,'ifIndex','1','1','.1.3.6.1.2.1.2.2.1.1.1',1),(1,1,'ifIndex','2','2','.1.3.6.1.2.1.2.2.1.1.2',1),(1,1,'ifIndex','3','3','.1.3.6.1.2.1.2.2.1.1.3',1),(1,1,'ifOperStatus','Up','1','.1.3.6.1.2.1.2.2.1.8.1',1),(1,1,'ifOperStatus','Up','2','.1.3.6.1.2.1.2.2.1.8.2',1),(1,1,'ifOperStatus','Up','3','.1.3.6.1.2.1.2.2.1.8.3',1),(1,1,'ifDescr','lo','1','.1.3.6.1.2.1.2.2.1.2.1',1),(1,1,'ifDescr','eth0','2','.1.3.6.1.2.1.2.2.1.2.2',1),(1,1,'ifDescr','eth1','3','.1.3.6.1.2.1.2.2.1.2.3',1),(1,1,'ifName','lo','1','.1.3.6.1.2.1.31.1.1.1.1.1',1),(1,1,'ifName','eth0','2','.1.3.6.1.2.1.31.1.1.1.1.2',1),(1,1,'ifName','eth1','3','.1.3.6.1.2.1.31.1.1.1.1.3',1),(1,1,'ifAlias','','1','.1.3.6.1.2.1.31.1.1.1.18.1',1),(1,1,'ifAlias','','2','.1.3.6.1.2.1.31.1.1.1.18.2',1),(1,1,'ifAlias','','3','.1.3.6.1.2.1.31.1.1.1.18.3',1),(1,1,'ifType','24','1','.1.3.6.1.2.1.2.2.1.3.1',1),(1,1,'ifType','6','2','.1.3.6.1.2.1.2.2.1.3.2',1),(1,1,'ifType','6','3','.1.3.6.1.2.1.2.2.1.3.3',1),(1,1,'ifSpeed','10000000','1','.1.3.6.1.2.1.2.2.1.5.1',1),(1,1,'ifSpeed','1000000000','2','.1.3.6.1.2.1.2.2.1.5.2',1),(1,1,'ifSpeed','1000000000','3','.1.3.6.1.2.1.2.2.1.5.3',1),(1,1,'ifHighSpeed','10','1','.1.3.6.1.2.1.31.1.1.1.15.1',1),(1,1,'ifHighSpeed','1000','2','.1.3.6.1.2.1.31.1.1.1.15.2',1),(1,1,'ifHighSpeed','1000','3','.1.3.6.1.2.1.31.1.1.1.15.3',1),(1,1,'ifHwAddr','','1','.1.3.6.1.2.1.2.2.1.6.1',1),(1,1,'ifHwAddr','08:00:27:FB:AD:CB','2','.1.3.6.1.2.1.2.2.1.6.2',1),(1,1,'ifHwAddr','08:00:27:DB:9F:35','3','.1.3.6.1.2.1.2.2.1.6.3',1),(1,1,'ifIP','10.0.2.15','2','.1.3.6.1.2.1.4.20.1.2.10.0.2.15',1),(1,1,'ifIP','127.0.0.1','1','.1.3.6.1.2.1.4.20.1.2.127.0.0.1',1),(1,1,'ifIP','192.168.56.2','3','.1.3.6.1.2.1.4.20.1.2.192.168.56.2',1),(2,6,'dskDevice','/dev/sda1','/dev/sda1','',1),(2,6,'dskMount','/','/dev/sda1','',1),(3,6,'dskDevice','/dev/sda1','/dev/sda1','',1),(3,6,'dskMount','/','/dev/sda1','',1);
+INSERT INTO `host_snmp_cache` VALUES (1,6,'dskDevice','/dev/sda1','/dev/sda1','',1),(1,6,'dskMount','/','/dev/sda1','',1),(1,1,'ifIndex','1','1','.1.3.6.1.2.1.2.2.1.1.1',1),(1,1,'ifIndex','2','2','.1.3.6.1.2.1.2.2.1.1.2',1),(1,1,'ifIndex','3','3','.1.3.6.1.2.1.2.2.1.1.3',1),(1,1,'ifOperStatus','Up','1','.1.3.6.1.2.1.2.2.1.8.1',1),(1,1,'ifOperStatus','Up','2','.1.3.6.1.2.1.2.2.1.8.2',1),(1,1,'ifOperStatus','Up','3','.1.3.6.1.2.1.2.2.1.8.3',1),(1,1,'ifDescr','lo','1','.1.3.6.1.2.1.2.2.1.2.1',1),(1,1,'ifDescr','eth0','2','.1.3.6.1.2.1.2.2.1.2.2',1),(1,1,'ifDescr','eth1','3','.1.3.6.1.2.1.2.2.1.2.3',1),(1,1,'ifName','lo','1','.1.3.6.1.2.1.31.1.1.1.1.1',1),(1,1,'ifName','eth0','2','.1.3.6.1.2.1.31.1.1.1.1.2',1),(1,1,'ifName','eth1','3','.1.3.6.1.2.1.31.1.1.1.1.3',1),(1,1,'ifAlias','','1','.1.3.6.1.2.1.31.1.1.1.18.1',1),(1,1,'ifAlias','','2','.1.3.6.1.2.1.31.1.1.1.18.2',1),(1,1,'ifAlias','','3','.1.3.6.1.2.1.31.1.1.1.18.3',1),(1,1,'ifType','24','1','.1.3.6.1.2.1.2.2.1.3.1',1),(1,1,'ifType','6','2','.1.3.6.1.2.1.2.2.1.3.2',1),(1,1,'ifType','6','3','.1.3.6.1.2.1.2.2.1.3.3',1),(1,1,'ifSpeed','10000000','1','.1.3.6.1.2.1.2.2.1.5.1',1),(1,1,'ifSpeed','1000000000','2','.1.3.6.1.2.1.2.2.1.5.2',1),(1,1,'ifSpeed','1000000000','3','.1.3.6.1.2.1.2.2.1.5.3',1),(1,1,'ifHighSpeed','10','1','.1.3.6.1.2.1.31.1.1.1.15.1',1),(1,1,'ifHighSpeed','1000','2','.1.3.6.1.2.1.31.1.1.1.15.2',1),(1,1,'ifHighSpeed','1000','3','.1.3.6.1.2.1.31.1.1.1.15.3',1),(1,1,'ifHwAddr','','1','.1.3.6.1.2.1.2.2.1.6.1',1),(1,1,'ifHwAddr','08:00:27:FB:AD:CB','2','.1.3.6.1.2.1.2.2.1.6.2',1),(1,1,'ifHwAddr','08:00:27:DB:9F:35','3','.1.3.6.1.2.1.2.2.1.6.3',1),(1,1,'ifIP','10.0.2.15','2','.1.3.6.1.2.1.4.20.1.2.10.0.2.15',1),(1,1,'ifIP','127.0.0.1','1','.1.3.6.1.2.1.4.20.1.2.127.0.0.1',1),(1,1,'ifIP','192.168.56.2','3','.1.3.6.1.2.1.4.20.1.2.192.168.56.2',1),(2,6,'dskDevice','/dev/sda1','/dev/sda1','',1),(2,6,'dskMount','/','/dev/sda1','',1),(3,6,'dskDevice','/dev/sda1','/dev/sda1','',1),(3,6,'dskMount','/','/dev/sda1','',1),(1,10,'sysDescr','Linux ubuntu14 3.16.0-23-generic #31-Ubuntu SMP Tue Oct 21 17:56:17 UTC 2014 x86_64','0','.1.3.6.1.2.1.1.1.0',1),(1,10,'sysObjectID','OID: iso.3.6.1.4.1.8072.3.2.10','0','.1.3.6.1.2.1.1.2.0',1),(1,10,'sysUpTime','16637337','0','.1.3.6.1.2.1.1.3.0',1),(1,10,'sysContact','Me me@example.org','0','.1.3.6.1.2.1.1.4.0',1),(1,10,'sysName','ubuntu14','0','.1.3.6.1.2.1.1.5.0',1),(1,10,'sysLocation','Sitting on the Dock of the Bay','0','.1.3.6.1.2.1.1.6.0',1),(1,10,'sysServices','72','0','.1.3.6.1.2.1.1.7.0',1),(2,10,'sysDescr','Linux ubuntu14 3.16.0-23-generic #31-Ubuntu SMP Tue Oct 21 17:56:17 UTC 2014 x86_64','0','.1.3.6.1.2.1.1.1.0',1),(2,10,'sysObjectID','OID: iso.3.6.1.4.1.8072.3.2.10','0','.1.3.6.1.2.1.1.2.0',1),(2,10,'sysUpTime','16644452','0','.1.3.6.1.2.1.1.3.0',1),(2,10,'sysContact','Me me@example.org','0','.1.3.6.1.2.1.1.4.0',1),(2,10,'sysName','ubuntu14','0','.1.3.6.1.2.1.1.5.0',1),(2,10,'sysLocation','Sitting on the Dock of the Bay','0','.1.3.6.1.2.1.1.6.0',1),(2,10,'sysServices','72','0','.1.3.6.1.2.1.1.7.0',1),(3,10,'sysDescr','Linux ubuntu14 3.16.0-23-generic #31-Ubuntu SMP Tue Oct 21 17:56:17 UTC 2014 x86_64','0','.1.3.6.1.2.1.1.1.0',1),(3,10,'sysObjectID','OID: iso.3.6.1.4.1.8072.3.2.10','0','.1.3.6.1.2.1.1.2.0',1),(3,10,'sysUpTime','16646250','0','.1.3.6.1.2.1.1.3.0',1),(3,10,'sysContact','Me me@example.org','0','.1.3.6.1.2.1.1.4.0',1),(3,10,'sysName','ubuntu14','0','.1.3.6.1.2.1.1.5.0',1),(3,10,'sysLocation','Sitting on the Dock of the Bay','0','.1.3.6.1.2.1.1.6.0',1),(3,10,'sysServices','72','0','.1.3.6.1.2.1.1.7.0',1);
 /*!40000 ALTER TABLE `host_snmp_cache` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -796,7 +796,7 @@ CREATE TABLE `host_snmp_query` (
 
 LOCK TABLES `host_snmp_query` WRITE;
 /*!40000 ALTER TABLE `host_snmp_query` DISABLE KEYS */;
-INSERT INTO `host_snmp_query` VALUES (1,6,'dskDevice','|query_dskDevice|',0),(1,1,'ifDescr','|query_ifDescr|',1),(2,6,'dskDevice','|query_dskDevice|',1),(3,6,'dskDevice','|query_dskDevice|',1);
+INSERT INTO `host_snmp_query` VALUES (1,6,'dskDevice','|query_dskDevice|',0),(1,1,'ifDescr','|query_ifDescr|',1),(2,6,'dskDevice','|query_dskDevice|',1),(3,6,'dskDevice','|query_dskDevice|',1),(1,10,'sysDescr','|query_sysDescr|',1),(2,10,'sysDescr','|query_sysDescr|',1),(3,10,'sysDescr','|query_sysDescr|',1);
 /*!40000 ALTER TABLE `host_snmp_query` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -871,7 +871,7 @@ CREATE TABLE `host_template_snmp_query` (
 
 LOCK TABLES `host_template_snmp_query` WRITE;
 /*!40000 ALTER TABLE `host_template_snmp_query` DISABLE KEYS */;
-INSERT INTO `host_template_snmp_query` VALUES (1,1),(3,1),(3,2),(4,1),(4,3),(5,1),(6,1),(6,4),(6,7),(7,1),(7,8),(7,9),(8,6);
+INSERT INTO `host_template_snmp_query` VALUES (1,1),(3,1),(3,2),(4,1),(4,3),(5,1),(6,1),(6,4),(6,7),(7,1),(7,8),(7,9),(8,6),(8,10);
 /*!40000 ALTER TABLE `host_template_snmp_query` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1142,7 +1142,7 @@ CREATE TABLE `poller_reindex` (
 
 LOCK TABLES `poller_reindex` WRITE;
 /*!40000 ALTER TABLE `poller_reindex` DISABLE KEYS */;
-INSERT INTO `poller_reindex` VALUES (1,1,0,1,'<','136151','.1.3.6.1.2.1.1.3.0'),(2,6,0,1,'<','14833156','.1.3.6.1.2.1.1.3.0'),(3,6,0,1,'<','14841581','.1.3.6.1.2.1.1.3.0');
+INSERT INTO `poller_reindex` VALUES (1,1,0,1,'<','16663276','.1.3.6.1.2.1.1.3.0'),(2,6,0,1,'<','14833156','.1.3.6.1.2.1.1.3.0'),(3,6,0,1,'<','14841581','.1.3.6.1.2.1.1.3.0'),(1,10,0,1,'<','16663276','.1.3.6.1.2.1.1.3.0'),(2,10,0,1,'<','16644452','.1.3.6.1.2.1.1.3.0'),(3,10,0,1,'<','16646251','.1.3.6.1.2.1.1.3.0');
 /*!40000 ALTER TABLE `poller_reindex` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1169,7 +1169,7 @@ CREATE TABLE `poller_time` (
 
 LOCK TABLES `poller_time` WRITE;
 /*!40000 ALTER TABLE `poller_time` DISABLE KEYS */;
-INSERT INTO `poller_time` VALUES (1,26911,0,'2015-05-20 14:20:01','2015-05-20 14:20:01');
+INSERT INTO `poller_time` VALUES (1,20474,0,'2015-05-27 22:50:01','2015-05-27 22:50:01');
 /*!40000 ALTER TABLE `poller_time` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1247,7 +1247,7 @@ CREATE TABLE `settings` (
 
 LOCK TABLES `settings` WRITE;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES ('path_php_binary','/usr/bin/php'),('path_rrdtool','/usr/bin/rrdtool'),('poller_lastrun','1432099201'),('path_webroot','/usr/share/cacti/site'),('date','2015-05-20 14:20:01'),('stats_poller','Time:0.1208 Method:cmd.php Processes:1 Threads:N/A Hosts:2 HostsPerProcess:2 DataSources:5 RRDsProcessed:5'),('stats_recache','RecacheTime:0.0 HostsRecached:0'),('path_snmpwalk','/usr/bin/snmpwalk'),('path_snmpget','/usr/bin/snmpget'),('path_snmpbulkwalk','/usr/bin/snmpbulkwalk'),('path_snmpgetnext','/usr/bin/snmpgetnext'),('path_cactilog','/var/log/cacti/cacti.log'),('snmp_version','net-snmp'),('rrdtool_version','rrd-1.4.x');
+INSERT INTO `settings` VALUES ('path_php_binary','/usr/bin/php'),('path_rrdtool','/usr/bin/rrdtool'),('poller_lastrun','1432734601'),('path_webroot','/usr/share/cacti/site'),('date','2015-05-27 22:50:01'),('stats_poller','Time:0.1104 Method:cmd.php Processes:1 Threads:N/A Hosts:4 HostsPerProcess:4 DataSources:5 RRDsProcessed:5'),('stats_recache','RecacheTime:0.0 HostsRecached:0'),('path_snmpwalk','/usr/bin/snmpwalk'),('path_snmpget','/usr/bin/snmpget'),('path_snmpbulkwalk','/usr/bin/snmpbulkwalk'),('path_snmpgetnext','/usr/bin/snmpgetnext'),('path_cactilog','/var/log/cacti/cacti.log'),('snmp_version','net-snmp'),('rrdtool_version','rrd-1.4.x');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1316,7 +1316,7 @@ CREATE TABLE `snmp_query` (
   `data_input_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1325,7 +1325,7 @@ CREATE TABLE `snmp_query` (
 
 LOCK TABLES `snmp_query` WRITE;
 /*!40000 ALTER TABLE `snmp_query` DISABLE KEYS */;
-INSERT INTO `snmp_query` VALUES (1,'d75e406fdeca4fcef45b8be3a9a63cbc','<path_cacti>/resource/snmp_queries/interface.xml','SNMP - Interface Statistics','Queries a host for a list of monitorable interfaces',0,2),(2,'3c1b27d94ad208a0090f293deadde753','<path_cacti>/resource/snmp_queries/net-snmp_disk.xml','ucd/net -  Get Monitored Partitions','Retrieves a list of monitored partitions/disks from a net-snmp enabled host.',0,2),(3,'59aab7b0feddc7860002ed9303085ba5','<path_cacti>/resource/snmp_queries/kbridge.xml','Karlnet - Wireless Bridge Statistics','Gets information about the wireless connectivity of each station from a Karlnet bridge.',0,2),(4,'ad06f46e22e991cb47c95c7233cfaee8','<path_cacti>/resource/snmp_queries/netware_disk.xml','Netware - Get Available Volumes','Retrieves a list of volumes from a Netware server.',0,2),(6,'8ffa36c1864124b38bcda2ae9bd61f46','<path_cacti>/resource/script_queries/unix_disk.xml','Unix - Get Mounted Partitions','Queries a list of mounted partitions on a unix-based host with the',0,11),(7,'30ec734bc0ae81a3d995be82c73f46c1','<path_cacti>/resource/snmp_queries/netware_cpu.xml','Netware - Get Processor Information','Gets information about running processors in a Netware server',0,2),(8,'9343eab1f4d88b0e61ffc9d020f35414','<path_cacti>/resource/script_server/host_disk.xml','SNMP - Get Mounted Partitions','Gets a list of partitions using SNMP',0,12),(9,'0d1ab53fe37487a5d0b9e1d3ee8c1d0d','<path_cacti>/resource/script_server/host_cpu.xml','SNMP - Get Processor Information','Gets usage for each processor in the system using the host MIB.',0,12);
+INSERT INTO `snmp_query` VALUES (1,'d75e406fdeca4fcef45b8be3a9a63cbc','<path_cacti>/resource/snmp_queries/interface.xml','SNMP - Interface Statistics','Queries a host for a list of monitorable interfaces',0,2),(2,'3c1b27d94ad208a0090f293deadde753','<path_cacti>/resource/snmp_queries/net-snmp_disk.xml','ucd/net -  Get Monitored Partitions','Retrieves a list of monitored partitions/disks from a net-snmp enabled host.',0,2),(3,'59aab7b0feddc7860002ed9303085ba5','<path_cacti>/resource/snmp_queries/kbridge.xml','Karlnet - Wireless Bridge Statistics','Gets information about the wireless connectivity of each station from a Karlnet bridge.',0,2),(4,'ad06f46e22e991cb47c95c7233cfaee8','<path_cacti>/resource/snmp_queries/netware_disk.xml','Netware - Get Available Volumes','Retrieves a list of volumes from a Netware server.',0,2),(6,'8ffa36c1864124b38bcda2ae9bd61f46','<path_cacti>/resource/script_queries/unix_disk.xml','Unix - Get Mounted Partitions','Queries a list of mounted partitions on a unix-based host with the',0,11),(7,'30ec734bc0ae81a3d995be82c73f46c1','<path_cacti>/resource/snmp_queries/netware_cpu.xml','Netware - Get Processor Information','Gets information about running processors in a Netware server',0,2),(8,'9343eab1f4d88b0e61ffc9d020f35414','<path_cacti>/resource/script_server/host_disk.xml','SNMP - Get Mounted Partitions','Gets a list of partitions using SNMP',0,12),(9,'0d1ab53fe37487a5d0b9e1d3ee8c1d0d','<path_cacti>/resource/script_server/host_cpu.xml','SNMP - Get Processor Information','Gets usage for each processor in the system using the host MIB.',0,12),(10,'54c86cf151880ee7341fef4f7c314fe3','<path_cacti>/resource/snmp_queries/system.xml','SNMP - Get System Information','SNMP System Information',0,2);
 /*!40000 ALTER TABLE `snmp_query` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1560,7 +1560,7 @@ CREATE TABLE `user_log` (
 
 LOCK TABLES `user_log` WRITE;
 /*!40000 ALTER TABLE `user_log` DISABLE KEYS */;
-INSERT INTO `user_log` VALUES ('admin',0,'2015-05-20 13:49:59',0,'192.168.56.1'),('admin',1,'2015-05-20 13:50:04',1,'192.168.56.1'),('admin',0,'0000-00-00 00:00:00',3,'192.168.56.1'),('admin',1,'2015-05-25 22:29:35',1,'192.168.56.1'),('admin',1,'2015-05-26 21:19:45',1,'192.168.56.1');
+INSERT INTO `user_log` VALUES ('admin',0,'2015-05-20 13:49:59',0,'192.168.56.1'),('admin',1,'2015-05-20 13:50:04',1,'192.168.56.1'),('admin',0,'0000-00-00 00:00:00',3,'192.168.56.1'),('admin',1,'2015-05-25 22:29:35',1,'192.168.56.1'),('admin',1,'2015-05-26 21:19:45',1,'192.168.56.1'),('admin',1,'2015-05-27 22:33:50',1,'192.168.56.1');
 /*!40000 ALTER TABLE `user_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2313,4 +2313,4 @@ CREATE TABLE IF NOT EXISTS `slow_log` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-26 21:26:16
+-- Dump completed on 2015-05-27 22:50:56
