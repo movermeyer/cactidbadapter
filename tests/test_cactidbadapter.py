@@ -152,3 +152,10 @@ class UnitTests(unittest.TestCase):
                 self.assertEqual(val['field_name'], 'ifIP')
                 self.assertEqual(val['oid'],
                                  '.1.3.6.1.2.1.4.20.1.2.192.168.56.2')
+
+    def test_get_sysname(self):
+        """Get fetched snmp sysName values from cacti db."""
+        vals = self.obj.get_sysname()
+        for val in vals:
+            if val['field_value'] == 'ubuntu14':
+                self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.5.0')
