@@ -215,26 +215,7 @@ class CactiDBAdapter(object):
         """Get ifIP values from "host_snmp_cache" table.
 
         This is a wrapper method of "get_snmp_cache()".
-
-        Args:
-
-            :columns (list optional): Specifying display columns.
-                Default is "('id', 'hostname', 'description',
-                             'field_name', 'field_value', 'oid')".
-
-                Please see available column names with
-                    this method "host_snmp_cache_columns()".
-
-            :condition (str optional): This string is used with
-                where condition. Default is None.
-
-            :limit (int optional): limit value(integer).
-                Default is None.
-
-        Returns:
-
-            :list (of dict): Return fetched snmp values list of dictionary.
-
+        Args and Returns are same with base method.
         """
         condition = 'field_name = "ifIP"'
         return self.get_snmp_cache(columns=columns,
@@ -245,28 +226,20 @@ class CactiDBAdapter(object):
         """Get sysDescr values from "host_snmp_cache" table.
 
         This is a wrapper method of "get_snmp_cache()".
-
-        Args:
-
-            :columns (list optional): Specifying display columns.
-                Default is "('id', 'hostname', 'description',
-                             'field_name', 'field_value', 'oid')".
-
-                Please see available column names with
-                    this method "host_snmp_cache_columns()".
-
-            :condition (str optional): This string is used with
-                where condition. Default is None.
-
-            :limit (int optional): limit value(integer).
-                Default is None.
-
-        Returns:
-
-            :list (of dict): Return fetched snmp values list of dictionary.
-
+        Args and Returns are same with base method.
         """
         condition = 'field_name = "sysDescr"'
+        return self.get_snmp_cache(columns=columns,
+                                   condition=condition,
+                                   limit=limit)
+
+    def get_objectid(self, columns=None, condition=None, limit=None):
+        """Get sysObjectID values from "host_snmp_cache" table.
+
+        This is a wrapper method of "get_snmp_cache()".
+        Args and Returns are same with base method.
+        """
+        condition = 'field_name = "sysObjectID"'
         return self.get_snmp_cache(columns=columns,
                                    condition=condition,
                                    limit=limit)
@@ -275,28 +248,53 @@ class CactiDBAdapter(object):
         """Get sysName values from "host_snmp_cache" table.
 
         This is a wrapper method of "get_snmp_cache()".
-
-        Args:
-
-            :columns (list optional): Specifying display columns.
-                Default is "('id', 'hostname', 'description',
-                             'field_name', 'field_value', 'oid')".
-
-                Please see available column names with
-                    this method "host_snmp_cache_columns()".
-
-            :condition (str optional): This string is used with
-                where condition. Default is None.
-
-            :limit (int optional): limit value(integer).
-                Default is None.
-
-        Returns:
-
-            :list (of dict): Return fetched snmp values list of dictionary.
-
+        Args and Returns are same with base method.
         """
         condition = 'field_name = "sysName"'
+        return self.get_snmp_cache(columns=columns,
+                                   condition=condition,
+                                   limit=limit)
+
+    def get_uptime(self, columns=None, condition=None, limit=None):
+        """Get sysUpTime values from "host_snmp_cache" table.
+
+        This is a wrapper method of "get_snmp_cache()".
+        Args and Returns are same with base method.
+        """
+        condition = 'field_name = "sysUpTime"'
+        return self.get_snmp_cache(columns=columns,
+                                   condition=condition,
+                                   limit=limit)
+
+    def get_syscontact(self, columns=None, condition=None, limit=None):
+        """Get sysContact values from "host_snmp_cache" table.
+
+        This is a wrapper method of "get_snmp_cache()".
+        Args and Returns are same with base method.
+        """
+        condition = 'field_name = "sysContact"'
+        return self.get_snmp_cache(columns=columns,
+                                   condition=condition,
+                                   limit=limit)
+
+    def get_sysLocation(self, columns=None, condition=None, limit=None):
+        """Get sysLocation values from "host_snmp_cache" table.
+
+        This is a wrapper method of "get_snmp_cache()".
+        Args and Returns are same with base method.
+        """
+        condition = 'field_name = "sysLocation"'
+        return self.get_snmp_cache(columns=columns,
+                                   condition=condition,
+                                   limit=limit)
+
+    def get_sysServices(self, columns=None, condition=None, limit=None):
+        """Get sysServices values from "host_snmp_cache" table.
+
+        This is a wrapper method of "get_snmp_cache()".
+        Args and Returns are same with base method.
+        """
+        condition = 'field_name = "sysServices"'
         return self.get_snmp_cache(columns=columns,
                                    condition=condition,
                                    limit=limit)

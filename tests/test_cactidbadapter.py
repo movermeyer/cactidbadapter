@@ -4,6 +4,7 @@
 
 import unittest
 from cactidbadapter import CactiDBAdapter
+import re
 
 
 class UnitTests(unittest.TestCase):
@@ -155,12 +156,28 @@ class UnitTests(unittest.TestCase):
 
     def test_get_sysdescr(self):
         """Get fetched snmp sysDescr values from cacti db."""
-        sysdescr = ('Linux ubuntu14 3.16.0-23-generic '
-                    '#31-Ubuntu SMP Tue Oct 21 17:56:17 UTC 2014 x86_64')
+        _val = ('Linux ubuntu14 3.1sysdescr6.0-23-generic '
+                '#31-Ubuntu SMP Tue Oct 21 17:56:17 UTC 2014 x86_64')
         vals = self.obj.get_sysname()
         for val in vals:
-            if val['field_value'] == sysdescr:
+            if val['field_value'] == _val:
                 self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.1.0')
+
+    def test_get_sysobjectid(self):
+        """Get fetched snmp sysObjectID values from cacti db."""
+        _val = 'OID: iso.3.6.1.4.1.8072.3.2.10'
+        vals = self.obj.get_sysname()
+        for val in vals:
+            if val['field_value'] == _val:
+                self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.2.0')
+
+    def test_get_sysuptime(self):
+        """Get fetched snmp sysUpTime values from cacti db."""
+        pat = re.compile(r'\d+')
+        vals = self.obj.get_sysname()
+        for val in vals:
+            if pat.match(val['field_value']):
+                self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.3.0')
 
     def test_get_sysname(self):
         """Get fetched snmp sysName values from cacti db."""
