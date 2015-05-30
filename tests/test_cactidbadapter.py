@@ -4,7 +4,6 @@
 
 import unittest
 from cactidbadapter import CactiDBAdapter
-import re
 
 
 class UnitTests(unittest.TestCase):
