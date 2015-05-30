@@ -62,27 +62,7 @@ Example for show host table columns. ::
     >>> cacti.host_columns()
     ['availability', 'availability_method', 'avg_time', 'cur_time', 'description', ... ]
 
-Example for get_snmp_cache() ifIP field_name value with limit 1. ::
-
-    >>> cacti.get_snmp_cache(condition='field_name = "ifIP"', limit=1)
-    [{'hostname': '127.0.0.1', 'field_value': '10.0.2.15', 'description': 'Localhost', 'field_name': 'ifIP', 'id': 1, 'oid': '.1.3.6.1.2.1.4.20.1.2.10.0.2.15'}]
-
-Example for get_snmp_cache() ifIP field_name value with limit 1 and filterd some columns. ::
-
-    >>> cacti.get_snmp_cache(condition='field_name = "ifIP"', columns=('description', 'field_name', 'field_value'), limit=1)
-    [{'field_value': '10.0.2.15', 'description': 'Localhost', 'field_name': 'ifIP'}]
-
-Example for show host_snmp_cache table field_names. ::
-
-    >>> cacti.host_snmp_cache_field_names()
-    ['dskDevice', 'dskMount', 'ifAlias', 'ifDescr', 'ifHighSpeed', 'ifHwAddr', 'ifIP', ... ]
-
-Example for show host_snmp_cache table columns::
-
-    >>> cacti.host_snmp_cache_columns()
-    ['availability', 'availability_method', 'avg_time', 'cur_time', 'description',  ... ]
-
-Please see sample code.
+Other sample is here. ::
 
     https://github.com/mtoshi/cactidbadapter/blob/master/samples/sample.py
 
