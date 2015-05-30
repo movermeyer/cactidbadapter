@@ -1,0 +1,66 @@
+<system>
+  <name>Get SNMP System</name>
+  <description>Get Host System Information</description>
+  <oid_index>.1.3.6.1.2.1.1.2</oid_index>
+  <oid_index_parse>OID/REGEXP:^.*(.{1})$</oid_index_parse> =
+  <index_order_type>numeric</index_order_type>
+  <fields>
+
+    <sysDescr>
+      <name>System Description</name>
+      <method>get</method>
+      <source>value</source>
+      <direction>input</direction>
+      <oid>.1.3.6.1.2.1.1.1</oid>
+    </sysDescr>
+
+    <sysObjectID>
+      <name>System Object ID</name>
+      <method>get</method>
+      <source>value</source>
+      <direction>input</direction>
+      <oid>.1.3.6.1.2.1.1.2</oid>
+    </sysObjectID>
+
+    <sysUpTime>
+      <name>System Up Time</name>
+      <method>get</method>
+      <source>value</source>
+      <direction>input</direction>
+      <oid>.1.3.6.1.2.1.1.3</oid>
+    </sysUpTime>
+
+    <sysContact>
+      <name>System Contact</name>
+      <method>get</method>
+      <source>value</source>
+      <direction>input</direction>
+      <oid>.1.3.6.1.2.1.1.4</oid>
+    </sysContact>
+
+    <sysName>
+      <name>System Name</name>
+      <method>get</method>
+      <source>value</source>
+      <direction>input</direction>
+      <oid>.1.3.6.1.2.1.1.5</oid>
+    </sysName>
+
+    <sysLocation>
+      <name>System Location</name>
+      <method>get</method>
+      <source>value</source>
+      <direction>input</direction>
+      <oid>.1.3.6.1.2.1.1.6</oid>
+    </sysLocation>
+
+    <sysServices>
+      <name>System Service</name>
+      <method>get</method>
+      <source>value</source>
+      <direction>input</direction>
+      <oid>.1.3.6.1.2.1.1.7</oid>
+    </sysServices>
+
+  </fields>
+</system>

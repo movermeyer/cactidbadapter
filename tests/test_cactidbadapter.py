@@ -52,6 +52,7 @@ class UnitTests(unittest.TestCase):
         hostname = '127.0.0.1'
 
         hosts = self.obj.get_host()
+        self.assertEqual(len(hosts), 3)
         self.assertEqual(hosts[0]['hostname'], hostname)
 
         hosts = self.obj.get_host(condition='hostname = "%s"' % hostname)
@@ -151,3 +152,45 @@ class UnitTests(unittest.TestCase):
                 self.assertEqual(val['field_name'], 'ifIP')
                 self.assertEqual(val['oid'],
                                  '.1.3.6.1.2.1.4.20.1.2.192.168.56.2')
+
+    def test_get_sysdescr(self):
+        """Get fetched snmp sysDescr values from cacti db."""
+        vals = self.obj.get_sysdescr()
+        for val in vals:
+            self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.1.0')
+
+    def test_get_sysobjectid(self):
+        """Get fetched snmp sysObjectID values from cacti db."""
+        vals = self.obj.get_sysobjectid()
+        for val in vals:
+            self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.2.0')
+
+    def test_get_sysuptime(self):
+        """Get fetched snmp sysUpTime values from cacti db."""
+        vals = self.obj.get_sysuptime()
+        for val in vals:
+            self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.3.0')
+
+    def test_get_syscontact(self):
+        """Get fetched snmp sysContact values from cacti db."""
+        vals = self.obj.get_syscontact()
+        for val in vals:
+            self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.4.0')
+
+    def test_get_sysname(self):
+        """Get fetched snmp sysName values from cacti db."""
+        vals = self.obj.get_sysname()
+        for val in vals:
+            self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.5.0')
+
+    def test_get_syslocation(self):
+        """Get fetched snmp sysLocation values from cacti db."""
+        vals = self.obj.get_syslocation()
+        for val in vals:
+            self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.6.0')
+
+    def test_get_sysservices(self):
+        """Get fetched snmp sysServices values from cacti db."""
+        vals = self.obj.get_sysservices()
+        for val in vals:
+            self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.7.0')
