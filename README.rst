@@ -91,22 +91,22 @@ SNMP system values
 Cacti doesn't have system informations with default.
 If you need system values (sysDescr, sysNaem, sysUpTime ...), then you install "system.xml".
 
-     For Debian/Ubuntu ::
+     1. For Debian/Ubuntu ::
 
          sudo cp utils/cacti/system.xml /usr/share/cacti/resource/snmp_queries/
 
-     Add Data Queries ::
+     2. Add Data Queries ::
 
          Name: SNMP - Get System Information
          Description: SNMP System Information
          XML Path: <path_cacti>/resource/snmp_queries/system.xml
          Data Input Method: Get SNMP Data (Indexed)
 
-     Add Host Templates ::
+     3. Add Host Templates ::
 
-         "Left menu" > "Host Templates" > "Local Linux Machine" > "Associated Data Queries" > Add
+         "Left menu" > "Host Templates" > YOUR_TEMPLATE_NAME > "Associated Data Queries" > Add
 
-         Add Data Query: "SNMP - Get System Information" # Select and Add.
+         "Add Data Query": "SNMP - Get System Information" # Select and Add.
 
 See also
 ---------
