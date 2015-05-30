@@ -233,7 +233,7 @@ class CactiDBAdapter(object):
                                    condition=condition,
                                    limit=limit)
 
-    def get_objectid(self, columns=None, condition=None, limit=None):
+    def get_sysobjectid(self, columns=None, condition=None, limit=None):
         """Get sysObjectID values from "host_snmp_cache" table.
 
         This is a wrapper method of "get_snmp_cache()".
@@ -255,7 +255,7 @@ class CactiDBAdapter(object):
                                    condition=condition,
                                    limit=limit)
 
-    def get_uptime(self, columns=None, condition=None, limit=None):
+    def get_sysuptime(self, columns=None, condition=None, limit=None):
         """Get sysUpTime values from "host_snmp_cache" table.
 
         This is a wrapper method of "get_snmp_cache()".
@@ -277,7 +277,7 @@ class CactiDBAdapter(object):
                                    condition=condition,
                                    limit=limit)
 
-    def get_sysLocation(self, columns=None, condition=None, limit=None):
+    def get_syslocation(self, columns=None, condition=None, limit=None):
         """Get sysLocation values from "host_snmp_cache" table.
 
         This is a wrapper method of "get_snmp_cache()".
@@ -288,7 +288,7 @@ class CactiDBAdapter(object):
                                    condition=condition,
                                    limit=limit)
 
-    def get_sysServices(self, columns=None, condition=None, limit=None):
+    def get_sysservices(self, columns=None, condition=None, limit=None):
         """Get sysServices values from "host_snmp_cache" table.
 
         This is a wrapper method of "get_snmp_cache()".
