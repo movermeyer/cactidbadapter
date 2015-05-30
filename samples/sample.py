@@ -13,6 +13,8 @@ def main():
                            host='localhost',
                            port=3306)
 
+    # For host_table
+
     pprint('############################################')
     pprint('# Get Host (Default columns)')
     pprint('############################################')
@@ -45,6 +47,34 @@ def main():
     pprint('############################################')
     columns = cacti.host_columns()
     pprint(columns)
+
+    ####################################################
+    # Please add system.xml into your Cacti.
+    # Cacti default does not have system.xml.
+    # README.rst has how to add system.xml.
+    ####################################################
+
+    pprint('############################################')
+    pprint('# Get SNMP sysDescr.')
+    pprint('############################################')
+    columns = cacti.get_sysdescr()
+    pprint(columns)
+
+    pprint('############################################')
+    pprint('# Get SNMP sysName.')
+    pprint('############################################')
+    columns = cacti.get_sysname()
+    pprint(columns)
+
+    pprint('############################################')
+    pprint('# Get SNMP sysUpTime.')
+    pprint('############################################')
+    columns = cacti.get_sysuptime()
+    pprint(columns)
+
+    ####################################################
+    # For host_snmp_cache table.
+    ####################################################
 
     pprint('############################################')
     pprint('# Get SNMP Cache (ifIndex values.)')
