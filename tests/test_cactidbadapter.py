@@ -155,32 +155,42 @@ class UnitTests(unittest.TestCase):
 
     def test_get_sysdescr(self):
         """Get fetched snmp sysDescr values from cacti db."""
-        _val = ('Linux ubuntu14 3.1sysdescr6.0-23-generic '
-                '#31-Ubuntu SMP Tue Oct 21 17:56:17 UTC 2014 x86_64')
-        vals = self.obj.get_sysname()
+        vals = self.obj.get_sysdescr()
         for val in vals:
-            if val['field_value'] == _val:
-                self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.1.0')
+            self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.1.0')
 
     def test_get_sysobjectid(self):
         """Get fetched snmp sysObjectID values from cacti db."""
-        _val = 'OID: iso.3.6.1.4.1.8072.3.2.10'
-        vals = self.obj.get_sysname()
+        vals = self.obj.get_sysobjectid()
         for val in vals:
-            if val['field_value'] == _val:
-                self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.2.0')
+            self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.2.0')
 
     def test_get_sysuptime(self):
         """Get fetched snmp sysUpTime values from cacti db."""
-        pat = re.compile(r'\d+')
-        vals = self.obj.get_sysname()
+        vals = self.obj.get_sysuptime()
         for val in vals:
-            if pat.match(val['field_value']):
-                self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.3.0')
+            self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.3.0')
+
+    def test_get_syscontact(self):
+        """Get fetched snmp sysContact values from cacti db."""
+        vals = self.obj.get_syscontact()
+        for val in vals:
+            self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.4.0')
 
     def test_get_sysname(self):
         """Get fetched snmp sysName values from cacti db."""
         vals = self.obj.get_sysname()
         for val in vals:
-            if val['field_value'] == 'ubuntu14':
-                self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.5.0')
+            self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.5.0')
+
+    def test_get_syslocation(self):
+        """Get fetched snmp sysLocation values from cacti db."""
+        vals = self.obj.get_syslocation()
+        for val in vals:
+            self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.6.0')
+
+    def test_get_sysservices(self):
+        """Get fetched snmp sysServices values from cacti db."""
+        vals = self.obj.get_sysservices()
+        for val in vals:
+            self.assertEqual(val['oid'], '.1.3.6.1.2.1.1.7.0')
