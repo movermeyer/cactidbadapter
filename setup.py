@@ -58,7 +58,7 @@ with open('requirements.txt', 'w') as _file:
 
 setup(
     name="cactidbadapter",
-    version="0.1.1",
+    version="0.1.2",
     description='CactiDB Adapter.',
     long_description=README,
     author='Toshikatsu Murakoshi',
