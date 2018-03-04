@@ -10,7 +10,7 @@ This module can get easily devices and fetched snmp polling value.
    :target: http://travis-ci.org/mtoshi/cactidbadapter
 .. image:: https://coveralls.io/repos/mtoshi/cactidbadapter/badge.svg?branch=master
    :target: https://coveralls.io/r/mtoshi/cactidbadapter?branch=master
-.. image:: https://pypip.in/version/cactidbadapter/badge.svg
+.. image:: https://img.shields.io/pypi/v/cactidbadapter.svg
    :target: https://pypi.python.org/pypi/cactidbadapter/
    :alt: Latest Version
 
